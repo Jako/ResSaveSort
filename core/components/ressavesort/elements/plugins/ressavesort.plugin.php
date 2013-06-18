@@ -37,12 +37,12 @@ switch ($modx->event->name) {
 				$sortContainer = explode(',', $sortContainer);
 
 				if (in_array($parent, $sortContainer)) {
-					$c = $modx->newQuery('modResource', array('parent' => $parent));
+					$c = $modx->newQuery('modResource');
 					if (substr($sortBy, 0, 3) != 'tv.') {
 						$c->sortby($sortBy, $sortDir);
 					} else {
 						$c->select('modResource.id, modResource.menuindex, tvc.value, tv.name');
-						$c->where(array('OR:tv.name:=' => substr($sortBy, 3), 'tv.name:=' => NULL));
+						$c->where(array('parent:=' => $parent, array('AND:tv.name:=' => substr($sortBy, 3), 'OR:tv.name:=' => NULL)));
 						$c->sortby('value', $sortDir);
 						$c->leftJoin('modTemplateVarResource', 'tvc', array('tvc.contentid = modResource.id'));
 						$c->leftJoin('modTemplateVar', 'tv', array('tv.id = tvc.tmplvarid'));
