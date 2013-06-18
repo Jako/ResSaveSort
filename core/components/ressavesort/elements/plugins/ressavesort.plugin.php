@@ -58,7 +58,7 @@ switch ($modx->event->name) {
 					$siblings = $modx->getCollection('modResource', $c);
 					if (count($siblings) > 0) {
 						$menuindex = 0;
-						// sort them by menuindex
+						// replace the menuindex
 						foreach ($siblings as $sibling) {
 							$sibling->set('menuindex', $menuindex);
 							$sibling->save();
