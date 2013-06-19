@@ -38,9 +38,12 @@ switch ($modx->event->name) {
 				$sortContainer = $modx->getOption('sortcontainer', $sort, $parent, TRUE);
 
 				$sortContainer = explode(',', $sortContainer);
+				foreach ($sortContainer as $key => $value) {
+					$sortContainer[$key] = intval($value);
+				}
 
 				// if resource lasts in one sorted container
-				if (in_array($parent, $sortContainer)) {
+				if (in_array($parent, $sortContainer, TRUE)) {
 					$c = $modx->newQuery('modResource');
 
 					if (substr($sortBy, 0, 3) != 'tv.') {
