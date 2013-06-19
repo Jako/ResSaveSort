@@ -28,7 +28,7 @@ switch ($modx->event->name) {
 		$parent = $resource->get('parent');
 
 		// get ressavesort system settings
-		$sorts = $modx->fromJSON($modx->getOption('ressavesort.sorts', NULL, '', TRUE));
+		$sorts = $modx->fromJSON($modx->getOption('ressavesort.sorts', NULL, ''));
 		if ($sorts) {
 			// work each configuration
 			foreach ($sorts as $sort) {
@@ -48,6 +48,8 @@ switch ($modx->event->name) {
 
 					if (substr($sortBy, 0, 3) != 'tv.') {
 						// sortby resource field
+						$c->select('modResource.id, modResource.menuindex');
+						$c->where(array('parent:=' => $parent));
 						$c->sortby($sortBy, $sortDir);
 					} else {
 						// sortby template variable
