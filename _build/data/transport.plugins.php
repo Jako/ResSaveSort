@@ -37,7 +37,6 @@ $events = include $sources['events'] . 'ressavesort.events.php';
 if (is_array($events) && !empty($events)) {
 	$plugins[0]->addMany($events);
 	$modx->log(xPDO::LOG_LEVEL_INFO, 'Packaged in ' . count($events) . ' Plugin events for ResSaveSort.');
-	flush();
 } else {
 	$modx->log(xPDO::LOG_LEVEL_ERROR, 'Could not find plugin events for ResSaveSort!');
 }
