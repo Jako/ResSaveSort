@@ -1,0 +1,41 @@
+{
+  "name": "ResSaveSort",
+  "lowCaseName": "ressavesort",
+  "description": "Sort MODX containers after saving resources.",
+  "author": "Thomas Jakobi",
+  "version": "1.0.2",
+  "package": {
+    "elements": {
+      "plugins": [
+        {
+          "name": "ResSaveSort",
+          "file": "ressavesort.plugin.php",
+          "description": "Sort MODX containers after saving resources.",
+          "events": [
+            "OnDocFormSave",
+            "OnManagerPageBeforeRender"
+          ]
+        }
+      ]
+    },
+    "systemSettings": [
+      {
+        "key": "sorts",
+        "type": "ressavesort-systemsetting-grid",
+        "area": "manager",
+        "value": "[]"
+      },
+      {
+        "key": "debug",
+        "type": "combo-boolean",
+        "area": "system",
+        "value": "0"
+      }
+    ]
+  },
+  "build": {
+    "readme": "docs/readme.txt",
+    "license": "docs/license.txt",
+    "changelog": "docs/changelog.txt"
+  }
+}
