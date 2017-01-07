@@ -8,7 +8,7 @@ class ResSaveSortOnDocFormSave extends ResSaveSortPlugin
 {
     public function run()
     {
-        $parent = $this->modx->resource->get('parent');
+        $parent = $this->scriptProperties['resource']->get('parent');
 
         $sorts = json_decode($this->modx->getOption('ressavesort.sorts', null, ''), true);
         if ($sorts) {

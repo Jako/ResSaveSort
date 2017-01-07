@@ -3,7 +3,7 @@
   "lowCaseName": "ressavesort",
   "description": "Sort MODX containers after saving resources.",
   "author": "Thomas Jakobi",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "package": {
     "elements": {
       "plugins": [

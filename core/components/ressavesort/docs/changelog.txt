@@ -1,6 +1,8 @@
 Changelog for ResSaveSort
 =========================
 
+- 1.0.3
+    - Bugfox for invalid resource variable
 - 1.0.2
     - GPM config
     - JSON grid in system setting edit window
