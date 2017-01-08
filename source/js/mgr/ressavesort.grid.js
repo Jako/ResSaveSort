@@ -1,7 +1,7 @@
 /**
  * ResSaveSort Sizes Ratio Helper
  *
- * Copyright 2013-2016 by Thomas Jakobi <thomas.jakobi@partout.info>
+ * Copyright 2013-2017 by Thomas Jakobi <thomas.jakobi@partout.info>
  *
  * @package ressavesort
  * @subpackage script

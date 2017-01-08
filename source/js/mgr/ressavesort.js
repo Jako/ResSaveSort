@@ -1,7 +1,7 @@
 /**
  * ResSaveSort Custom Manager Page Script
  *
- * Copyright 2013-2016 by Thomas Jakobi <thomas.jakobi@partout.info>
+ * Copyright 2013-2017 by Thomas Jakobi <thomas.jakobi@partout.info>
  *
  * @package ressavesort
  * @subpackage script

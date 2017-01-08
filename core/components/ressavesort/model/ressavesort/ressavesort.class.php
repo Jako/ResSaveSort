@@ -29,7 +29,7 @@ class ResSaveSort
      * The version
      * @var string $version
      */
-    public $version = '1.0.2';
+    public $version = '1.0.3';
 
     /**
      * The class options
