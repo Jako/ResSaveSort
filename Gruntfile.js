@@ -9,6 +9,17 @@ module.exports = function (grunt) {
         ' * Build date: <%= grunt.template.today("yyyy-mm-dd") %>\n' +
         ' */\n',
         usebanner: {
+            css: {
+                options: {
+                    position: 'top',
+                    banner: '<%= banner %>'
+                },
+                files: {
+                    src: [
+                        'assets/components/ressavesort/css/mgr/ressavesort.min.css'
+                    ]
+                }
+            },
             js: {
                 options: {
                     position: 'top',
@@ -22,7 +33,7 @@ module.exports = function (grunt) {
             }
         },
         uglify: {
-            ressavesort: {
+            mgr: {
                 src: [
                     'source/js/mgr/ressavesort.js',
                     'source/js/mgr/ressavesort.grid.js'
@@ -30,10 +41,63 @@ module.exports = function (grunt) {
                 dest: 'assets/components/ressavesort/js/mgr/ressavesort.min.js'
             }
         },
+        sass: {
+            options: {
+                outputStyle: 'expanded',
+                sourcemap: false
+            },
+            mgr: {
+                files: {
+                    'source/css/mgr/ressavesort.css': 'source/sass/mgr/ressavesort.scss'
+                }
+            }
+        },
+        postcss: {
+            options: {
+                processors: [
+                    require('pixrem')(),
+                    require('autoprefixer')({
+                        browsers: 'last 2 versions, ie >= 8'
+                    })
+                ]
+            },
+            mgr: {
+                src: [
+                    'source/css/mgr/ressavesort.css'
+                ]
+            }
+        },
+        cssmin: {
+            mgr: {
+                src: [
+                    'source/css/mgr/ressavesort.css'
+                ],
+                dest: 'assets/components/ressavesort/css/mgr/ressavesort.min.css'
+            }
+        },
         sftp: {
+            css: {
+                files: {
+                    "./": [
+                        'assets/components/ressavesort/css/mgr/ressavesort.min.css',
+                        'source/css/mgr/ressavesort.css'
+                    ]
+                },
+                options: {
+                    path: '<%= sshconfig.hostpath %>develop/ressavesort/',
+                    srcBasePath: 'develop/ressavesort/',
+                    host: '<%= sshconfig.host %>',
+                    username: '<%= sshconfig.username %>',
+                    privateKey: '<%= sshconfig.privateKey %>',
+                    passphrase: '<%= sshconfig.passphrase %>',
+                    showProgress: true
+                }
+            },
             js: {
                 files: {
-                    "./": ['assets/components/ressavesort/js/mgr/ressavesort.min.js']
+                    "./": [
+                        'assets/components/ressavesort/js/mgr/ressavesort.min.js'
+                    ]
                 },
                 options: {
                     path: '<%= sshconfig.hostpath %>develop/ressavesort/',
@@ -47,29 +111,27 @@ module.exports = function (grunt) {
             }
         },
         watch: {
-            js: {
+            scripts: {
                 files: [
-                    'source/js/mgr/**/*.js'
+                    'source/**/*.js'
                 ],
                 tasks: ['uglify', 'usebanner:js', 'sftp:js']
+            },
+            css: {
+                files: ['source/**/*.scss'],
+                tasks: ['sass', 'postcss', 'cssmin', 'usebanner:css', 'sftp:css']
             }
         },
         bump: {
             copyright: {
                 files: [{
-                    src: 'core/components/ressavesort/elements/**/*.php',
-                    dest: 'core/components/ressavesort/elements/'
-                }, {
-                    src: 'source/js/mgr/**/*.js',
-                    dest: 'source/js/mgr/'
+                    src: 'core/components/ressavesort/model/ressavesort/ressavesort.class.php',
+                    dest: 'core/components/ressavesort/model/ressavesort/ressavesort.class.php'
                 }],
                 options: {
                     replacements: [{
                         pattern: /Copyright 2013(-\d{4})? by/g,
                         replacement: 'Copyright ' + (new Date().getFullYear() > 2013 ? '2013-' : '') + new Date().getFullYear() + ' by'
-                    }, {
-                        pattern: /(@copyright .*?) 2013(-\d{4})?/g,
-                        replacement: '$1 ' + (new Date().getFullYear() > 2013 ? '2013-' : '') + new Date().getFullYear()
                     }]
                 }
             },
@@ -90,12 +152,15 @@ module.exports = function (grunt) {
 
     //load the packages
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-banner');
     grunt.loadNpmTasks('grunt-ssh');
+    grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-string-replace');
     grunt.renameTask('string-replace', 'bump');
 
     //register the task
-    grunt.registerTask('default', ['bump', 'uglify', 'usebanner', 'sftp']);
+    grunt.registerTask('default', ['bump', 'uglify', 'sass', 'postcss', 'cssmin', 'usebanner', 'sftp']);
 };

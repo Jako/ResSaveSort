@@ -2,7 +2,7 @@
 /**
  * ResSaveSort classfile
  *
- * Copyright 2013-2016 by Thomas Jakobi <thomas.jakobi@partout.info>
+ * Copyright 2013-2017 by Thomas Jakobi <thomas.jakobi@partout.info>
  *
  * @package ressavesort
  * @subpackage classfile
@@ -45,7 +45,7 @@ class ResSaveSort
      */
     function __construct(modX &$modx, $options = array())
     {
-        $this->modx = &$modx;
+        $this->modx =& $modx;
 
         $corePath = $this->getOption('core_path', $options, $this->modx->getOption('core_path') . 'components/ressavesort/');
         $assetsPath = $this->getOption('assets_path', $options, $this->modx->getOption('assets_path') . 'components/ressavesort/');
@@ -111,14 +111,18 @@ class ResSaveSort
         $assetsUrl = $this->getOption('assetsUrl');
         $jsUrl = $this->getOption('jsUrl') . 'mgr/';
         $jsSourceUrl = $assetsUrl . '../../../source/js/mgr/';
+        $cssUrl = $this->getOption('cssUrl') . 'mgr/';
+        $cssSourceUrl = $assetsUrl . '../../../source/css/mgr/';
 
-        if ($this->getOption('debug') && ($this->getOption('assetsUrl') != MODX_ASSETS_URL . 'components/ressavesort/')) {
-            $this->modx->regClientStartupScript($jsSourceUrl . 'ressavesort.js?v=v' . $this->version);
-            $this->modx->regClientStartupScript($jsSourceUrl . 'ressavesort.grid.js?v=v' . $this->version);
+        if ($this->getOption('debug') && ($assetsUrl != MODX_ASSETS_URL . 'components/ressavesort/')) {
+            $this->modx->controller->addCss($cssSourceUrl . 'ressavesort.css?v=v' . $this->version);
+            $this->modx->controller->addJavascript($jsSourceUrl . 'ressavesort.js?v=v' . $this->version);
+            $this->modx->controller->addJavascript($jsSourceUrl . 'ressavesort.grid.js?v=v' . $this->version);
         } else {
-            $this->modx->regClientStartupScript($jsUrl . 'ressavesort.min.js?v=v' . $this->version);
+            $this->modx->controller->addCss($cssUrl . 'ressavesort.min.css?v=v' . $this->version);
+            $this->modx->controller->addJavascript($jsUrl . 'ressavesort.min.js?v=v' . $this->version);
         }
-        $this->modx->regClientStartupHTMLBlock('<script type="text/javascript">'
+        $this->modx->controller->addHtml('<script type="text/javascript">'
             . ' ResSaveSort.config = ' . json_encode($this->options) . ';'
             . '</script>');
     }

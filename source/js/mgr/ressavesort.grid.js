@@ -1,12 +1,3 @@
-/**
- * ResSaveSort Sizes Ratio Helper
- *
- * Copyright 2013-2017 by Thomas Jakobi <thomas.jakobi@partout.info>
- *
- * @package ressavesort
- * @subpackage script
- */
-
 ResSaveSort.grid.Systemsetting = function (config) {
     config = config || {};
     this.ident = config.ident || 'ressavesort-mecitem' + Ext.id();
@@ -132,7 +123,7 @@ Ext.extend(ResSaveSort.grid.Systemsetting, MODx.grid.LocalGrid, {
     },
     removeEntry: function () {
         Ext.Msg.confirm(_('remove') || '', _('confirm_remove') || '', function (e) {
-            if (e == 'yes') {
+            if (e === 'yes') {
                 var ds = this.getStore();
                 var rows = this.getSelectionModel().getSelections();
                 if (!rows.length) {
@@ -141,7 +132,7 @@ Ext.extend(ResSaveSort.grid.Systemsetting, MODx.grid.LocalGrid, {
                 for (var i = 0; i < rows.length; i++) {
                     var id = rows[i].id;
                     var index = ds.findBy(function (record, id) {
-                        if (record.id == id) {
+                        if (record.id === id) {
                             return true;
                         }
                     });
@@ -200,7 +191,7 @@ Ext.extend(ResSaveSort.grid.Systemsetting, MODx.grid.LocalGrid, {
     onClick: function (e) {
         var t = e.getTarget();
         var elm = t.className.split(' ')[0];
-        if (elm == 'icon') {
+        if (elm === 'icon') {
             var act = t.className.split(' ')[1];
             var record = this.getSelectionModel().getSelected();
             this.menu.record = record.data;
@@ -225,4 +216,4 @@ Ext.extend(ResSaveSort.grid.Systemsetting, MODx.grid.LocalGrid, {
         this.hiddenField.setValue(Ext.util.JSON.encode(value));
     }
 });
-Ext.reg('combo-ressavesort-grid', ResSaveSort.grid.Systemsetting);
+Ext.reg('ressavesort-systemsetting-grid', ResSaveSort.grid.Systemsetting);

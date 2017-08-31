@@ -1,0 +1,6 @@
+.action-buttons li {
+  float: left;
+  font-size: 1.1em;
+  line-height: .7;
+  margin-right: 5px;
+}
