@@ -111,15 +111,23 @@ module.exports = function (grunt) {
             }
         },
         watch: {
-            scripts: {
+            js: {
                 files: [
                     'source/**/*.js'
                 ],
                 tasks: ['uglify', 'usebanner:js', 'sftp:js']
             },
             css: {
-                files: ['source/**/*.scss'],
+                files: [
+                    'source/**/*.scss'
+                ],
                 tasks: ['sass', 'postcss', 'cssmin', 'usebanner:css', 'sftp:css']
+            },
+            config: {
+                files: [
+                    '_build/config.json'
+                ],
+                tasks: ['default']
             }
         },
         bump: {
@@ -130,7 +138,7 @@ module.exports = function (grunt) {
                 }],
                 options: {
                     replacements: [{
-                        pattern: /Copyright 2013(-\d{4})? by/g,
+                        pattern: /Copyright \d{4}(-\d{4})? by/g,
                         replacement: 'Copyright ' + (new Date().getFullYear() > 2013 ? '2013-' : '') + new Date().getFullYear() + ' by'
                     }]
                 }
