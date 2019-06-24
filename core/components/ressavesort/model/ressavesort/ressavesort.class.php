@@ -2,7 +2,7 @@
 /**
  * ResSaveSort classfile
  *
- * Copyright 2013-2018 by Thomas Jakobi <thomas.jakobi@partout.info>
+ * Copyright 2013-2019 by Thomas Jakobi <thomas.jakobi@partout.info>
  *
  * @package ressavesort
  * @subpackage classfile

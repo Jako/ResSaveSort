@@ -1,20 +1,17 @@
-ResSaveSort
-===========
+# ResSaveSort
 
 Sort MODX containers after saving resources.
 
-Features
---------
+## Features
 
-With this MODX Revolution plugin automatic sorting of MODX containers could be triggered. 
+With this MODX Revolution plugin automatic sorting of MODX containers could be
+triggered.
 
-Installation
-------------
+## Installation
 
 MODX Package Management
 
-System Settings
----------------
+## System Settings
 
 The plugin uses the following system setting:
 
@@ -22,7 +19,7 @@ Key | Description | Default
 --- | ----------- | -------
 ressavesort.sorts | JSON encoded array of sort configurations | -
 
-Since version 1.0.2 you could generate the JSON with a grid in the system setting.
+Since version 1.0.2 you could generate the JSON with a grid in the system setting edit window.
 
 ### Sort Configuration
 

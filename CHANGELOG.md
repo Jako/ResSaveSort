@@ -1,8 +1,0 @@
-Changelog
-================================================================================
-
-- 1.0.1
-    - Bugfix for 'Attempt to save lazy object'
-
-- 1.0
-    - Initial public release for MODX Revolution
