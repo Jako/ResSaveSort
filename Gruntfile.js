@@ -3,14 +3,14 @@ module.exports = function (grunt) {
     grunt.initConfig({
         modx: grunt.file.readJSON('_build/config.json'),
         banner: '/*!\n' +
-        ' * <%= modx.name %> - <%= modx.description %>\n' +
-        ' * Version: <%= modx.version %>\n' +
-        ' * Build date: <%= grunt.template.today("yyyy-mm-dd") %>\n' +
-        ' */\n',
+            ' * <%= modx.name %> - <%= modx.description %>\n' +
+            ' * Version: <%= modx.version %>\n' +
+            ' * Build date: <%= grunt.template.today("yyyy-mm-dd") %>\n' +
+            ' */\n',
         usebanner: {
             css: {
                 options: {
-                    position: 'top',
+                    position: 'bottom',
                     banner: '<%= banner %>'
                 },
                 files: {
@@ -52,6 +52,14 @@ module.exports = function (grunt) {
                 }
             }
         },
+        cssmin: {
+            mgr: {
+                src: [
+                    'source/css/mgr/ressavesort.css'
+                ],
+                dest: 'assets/components/ressavesort/css/mgr/ressavesort.min.css'
+            }
+        },
         postcss: {
             options: {
                 processors: [
@@ -60,17 +68,9 @@ module.exports = function (grunt) {
                 ]
             },
             mgr: {
-                src: [
-                    'source/css/mgr/ressavesort.css'
-                ]
-            }
-        },
-        cssmin: {
-            mgr: {
-                src: [
-                    'source/css/mgr/ressavesort.css'
-                ],
-                dest: 'assets/components/ressavesort/css/mgr/ressavesort.min.css'
+                files: {
+                    'source/css/mgr/logrequest.css': 'source/css/mgr/logrequest.css'
+                }
             }
         },
         watch: {
@@ -122,12 +122,12 @@ module.exports = function (grunt) {
     });
 
     //load the packages
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-banner');
-    grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-postcss');
+    grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-string-replace');
     grunt.renameTask('string-replace', 'bump');
 

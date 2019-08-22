@@ -29,10 +29,7 @@ ResSaveSort.grid.Systemsetting = function (config) {
         autoExpandColumn: 'value',
         labelStyle: 'position: absolute',
         columns: [{
-            dataIndex: 'id',
-            hidden: true
-        }, {
-            header: _('setting_ressavesort.sortby'),
+            header: _('ressavesort.sortby'),
             dataIndex: 'sortby',
             editable: true,
             editor: {
@@ -47,7 +44,7 @@ ResSaveSort.grid.Systemsetting = function (config) {
             },
             width: 100
         }, {
-            header: _('setting_ressavesort.sortdir'),
+            header: _('ressavesort.sortdir'),
             dataIndex: 'sortdir',
             editable: true,
             editor: {
@@ -61,7 +58,7 @@ ResSaveSort.grid.Systemsetting = function (config) {
             },
             width: 100
         }, {
-            header: _('setting_ressavesort.sortcontainer'),
+            header: _('ressavesort.sortcontainer'),
             dataIndex: 'sortcontainer',
             editable: true,
             editor: {
@@ -83,6 +80,9 @@ ResSaveSort.grid.Systemsetting = function (config) {
             align: 'right'
         }, {
             dataIndex: 'rank',
+            hidden: true
+        }, {
+            dataIndex: 'id',
             hidden: true
         }],
         tbar: ['->', {

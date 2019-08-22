@@ -29,7 +29,7 @@ class ResSaveSort
      * The version
      * @var string $version
      */
-    public $version = '1.0.3';
+    public $version = '1.0.4';
 
     /**
      * The class options
@@ -45,7 +45,7 @@ class ResSaveSort
      */
     function __construct(modX &$modx, $options = array())
     {
-        $this->modx =& $modx;
+        $this->modx = &$modx;
 
         $corePath = $this->getOption('core_path', $options, $this->modx->getOption('core_path') . 'components/ressavesort/');
         $assetsPath = $this->getOption('assets_path', $options, $this->modx->getOption('assets_path') . 'components/ressavesort/');
@@ -123,7 +123,7 @@ class ResSaveSort
             $this->modx->controller->addJavascript($jsUrl . 'ressavesort.min.js?v=v' . $this->version);
         }
         $this->modx->controller->addHtml('<script type="text/javascript">'
-            . ' ResSaveSort.config = ' . json_encode($this->options) . ';'
+            . 'ResSaveSort.config = ' . json_encode($this->options, JSON_PRETTY_PRINT) . ';'
             . '</script>');
     }
 }
