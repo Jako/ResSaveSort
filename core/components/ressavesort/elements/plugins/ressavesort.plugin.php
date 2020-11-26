@@ -17,12 +17,14 @@ $ressavesort = $modx->getService('ressavesort', 'ResSaveSort', $corePath . 'mode
     'core_path' => $corePath
 ));
 
-$modx->loadClass('ResSaveSortPlugin', $ressavesort->getOption('modelPath') . 'ressavesort/events/', true, true);
-$modx->loadClass($className, $ressavesort->getOption('modelPath') . 'ressavesort/events/', true, true);
-if (class_exists($className)) {
-    /** @var ResSaveSortPlugin $handler */
-    $handler = new $className($modx, $scriptProperties);
-    $handler->run();
+if ($ressavesort) {
+    $modx->loadClass('ResSaveSortPlugin', $ressavesort->getOption('modelPath') . 'ressavesort/events/', true, true);
+    $modx->loadClass($className, $ressavesort->getOption('modelPath') . 'ressavesort/events/', true, true);
+    if (class_exists($className)) {
+        /** @var ResSaveSortPlugin $handler */
+        $handler = new $className($modx, $scriptProperties);
+        $handler->run();
+    }
 }
 
 return;
