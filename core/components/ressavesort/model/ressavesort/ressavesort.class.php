@@ -123,7 +123,7 @@ class ResSaveSort
             $this->modx->controller->addJavascript($jsUrl . 'ressavesort.min.js?v=v' . $this->version);
         }
         $this->modx->controller->addHtml('<script type="text/javascript">'
-            . 'ResSaveSort.config = ' . json_encode($this->options, JSON_PRETTY_PRINT) . ';'
+            . 'ResSaveSort.config = ' . json_encode($this->options, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . ';'
             . '</script>');
     }
 }
