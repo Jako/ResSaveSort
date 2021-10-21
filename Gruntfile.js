@@ -69,7 +69,7 @@ module.exports = function (grunt) {
             },
             mgr: {
                 files: {
-                    'source/css/mgr/logrequest.css': 'source/css/mgr/logrequest.css'
+                    'source/css/mgr/ressavesort.css': 'source/css/mgr/ressavesort.css'
                 }
             }
         },

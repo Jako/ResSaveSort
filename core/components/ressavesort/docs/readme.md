@@ -16,31 +16,13 @@ MODX Package Management
 
 ## Usage
 
-Fill the MODX system setting `ressavesort.sorts` with an JSON encoded array of
-sort configurations. The JSON could be edited in a grid, when the system setting
-is edited with a right click on the system setting.
+Install via package manager and fill the MODX system setting `ressavesort.sorts`
+with a JSON encoded array of sort configurations.
 
-## System Settings
+## Documentation
 
-The plugin uses the following system setting in the namespace `ressavesort`:
+For more information please read the [documentation](https://jako.github.io/ResSaveSort/).
 
-Key | Description | Default
-----|-------------|--------
-Sort Configurations | JSON encoded array of sort configurations | -
+## License
 
-You could generate/edit the JSON only in a grid in the system setting edit
-window (it can't be edited with a double click on the value).
-
-### Sort Configuration
-
-Each sort configuration could use the following settings:
-
-Setting | Description | Default
---------|-------------| -------
-sortby | Resource fields to sort the MODX container by (template variables have to be prefixed by `tv.`) | pagetitle
-sortdir | Direction to sort the MODX container by (`asc` or `desc`) | asc
-sortcontainer | ID of the MODX container that has to be sorted | -
-
-## GitHub Repository
-
-https://github.com/Jako/ResSaveSort
+The project is licensed under the [GPLv2 license](https://github.com/Jako/ResSaveSort/blob/master/core/components/ressavesort/docs/license.md).
