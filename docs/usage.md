@@ -3,7 +3,7 @@ to be filled with a JSON encoded array of sort configurations.
 
 ## System Settings
 
-The following MODX system settings are available:
+ResSaveSort uses the following system settings in the namespace `ressavesort`:
 
 Key | Description | Default
 ----|-------------|--------
