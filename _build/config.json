@@ -9,8 +9,8 @@
       "plugins": [
         {
           "name": "ResSaveSort",
-          "file": "ressavesort.plugin.php",
           "description": "Sort MODX containers after saving resources.",
+          "file": "ressavesort.plugin.php",
           "events": [
             "OnDocFormSave",
             "OnManagerPageBeforeRender"
