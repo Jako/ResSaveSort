@@ -45,7 +45,7 @@ class ResSaveSort
      */
     function __construct(modX &$modx, $options = array())
     {
-        $this->modx = &$modx;
+        $this->modx =& $modx;
 
         $corePath = $this->getOption('core_path', $options, $this->modx->getOption('core_path') . 'components/ressavesort/');
         $assetsPath = $this->getOption('assets_path', $options, $this->modx->getOption('assets_path') . 'components/ressavesort/');
