@@ -14,7 +14,8 @@ MODX Package Management
 ## Usage
 
 Install via package manager and fill the MODX system setting `ressavesort.sorts`
-with a JSON encoded array of sort configurations.
+with sort configurations. The MODX system setting contains an editable grid for
+the configurations.
 
 ## Documentation
 

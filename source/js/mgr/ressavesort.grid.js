@@ -27,6 +27,7 @@ ResSaveSort.grid.Systemsetting = function (config) {
         enableDragDrop: true,
         ddGroup: this.ident + '-systemsetting-grid-dd',
         autoExpandColumn: 'value',
+        showActionsColumn: false,
         labelStyle: 'position: absolute',
         columns: [{
             header: _('ressavesort.sortby'),

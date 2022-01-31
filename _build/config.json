@@ -3,7 +3,7 @@
   "lowCaseName": "ressavesort",
   "description": "Sort MODX containers after saving resources.",
   "author": "Thomas Jakobi",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "package": {
     "elements": {
       "plugins": [
@@ -36,7 +36,7 @@
   "dependencies": [
     {
       "name": "php",
-      "version": ">=5.6"
+      "version": ">=7.2"
     },
     {
       "name": "modx",
@@ -52,6 +52,7 @@
     },
     "resolver": {
       "after": [
+        "resolve.cleanup.php",
         "resolve.treehillstudio.php"
       ]
     }

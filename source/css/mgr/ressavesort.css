@@ -1,14 +1,12 @@
 .action-buttons {
   text-align: center;
 }
-
 .action-buttons li {
   display: inline-block;
   font-size: 1.1em;
-  line-height: .7;
+  line-height: 0.7;
   margin-right: 5px;
 }
-
 .action-buttons li:last-child {
   margin-right: 0;
 }

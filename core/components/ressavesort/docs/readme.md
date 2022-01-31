@@ -23,6 +23,6 @@ with a JSON encoded array of sort configurations.
 
 For more information please read the [documentation](https://jako.github.io/ResSaveSort/).
 
-## License
+## GitHub Repository
 
-The project is licensed under the [GPLv2 license](https://github.com/Jako/ResSaveSort/blob/master/core/components/ressavesort/docs/license.md).
+https://github.com/Jako/ResSaveSort

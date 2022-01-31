@@ -1,12 +1,17 @@
 <?php
-
 /**
  * @package ressavesort
  * @subpackage plugin
  */
-class ResSaveSortOnDocFormSave extends ResSaveSortPlugin
+
+namespace TreehillStudio\ResSaveSort\Plugins\Events;
+
+use modResource;
+use TreehillStudio\ResSaveSort\Plugins\Plugin;
+
+class OnDocFormSave extends Plugin
 {
-    public function run()
+    public function process()
     {
         /** @var modResource $resource */
         $resource = $this->scriptProperties['resource'];
@@ -29,21 +34,21 @@ class ResSaveSortOnDocFormSave extends ResSaveSortPlugin
                     if (substr($sortBy, 0, 3) != 'tv.') {
                         // sortby resource field
                         $c->select('modResource.*');
-                        $c->where(array('parent:=' => $parent));
+                        $c->where(['parent:=' => $parent]);
                         $c->sortby($sortBy, $sortDir);
                     } else {
                         // sortby template variable
                         $c->select('modResource.*, tvc.value, tv.name');
-                        $c->where(array(
+                        $c->where([
                             'parent:=' => $parent,
-                            array(
+                            [
                                 'AND:tv.name:=' => substr($sortBy, 3),
                                 'OR:tv.name:=' => null
-                            )
-                        ));
+                            ]
+                        ]);
                         $c->sortby('value', $sortDir);
-                        $c->leftJoin('modTemplateVarResource', 'tvc', array('tvc.contentid = modResource.id'));
-                        $c->leftJoin('modTemplateVar', 'tv', array('tv.id = tvc.tmplvarid'));
+                        $c->leftJoin('modTemplateVarResource', 'tvc', ['tvc.contentid = modResource.id']);
+                        $c->leftJoin('modTemplateVar', 'tv', ['tv.id = tvc.tmplvarid']);
                     }
                     $siblings = $this->modx->getIterator('modResource', $c);
                     if ($this->modx->getCount('modResource', $c) > 0) {

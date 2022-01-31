@@ -1,12 +1,16 @@
 <?php
-
 /**
  * @package ressavesort
  * @subpackage plugin
  */
-class ResSaveSortOnManagerPageBeforeRender extends ResSaveSortPlugin
+
+namespace TreehillStudio\ResSaveSort\Plugins\Events;
+
+use TreehillStudio\ResSaveSort\Plugins\Plugin;
+
+class OnManagerPageBeforeRender extends Plugin
 {
-    public function run()
+    public function process()
     {
         $this->modx->controller->addLexiconTopic('ressavesort:default');
         $this->ressavesort->includeScriptAssets();
