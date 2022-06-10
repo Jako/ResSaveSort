@@ -1,6 +1,6 @@
 ResSaveSort.grid.Systemsetting = function (config) {
     config = config || {};
-    this.ident = config.ident || 'ressavesort-mecitem' + Ext.id();
+    this.ident = 'ressavesort-systemsetting-' + Ext.id();
     this.buttonColumnTpl = new Ext.XTemplate('<tpl for=".">'
         + '<tpl if="action_buttons !== null">'
         + '<ul class="action-buttons">'
