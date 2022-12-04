@@ -100,7 +100,7 @@ ResSaveSort.grid.Systemsetting = function (config) {
             }
         }
     });
-    ResSaveSort.grid.Systemsetting.superclass.constructor.call(this, config)
+    ResSaveSort.grid.Systemsetting.superclass.constructor.call(this, config);
 };
 Ext.extend(ResSaveSort.grid.Systemsetting, MODx.grid.LocalGrid, {
     windows: {},
