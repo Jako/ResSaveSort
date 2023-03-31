@@ -47,8 +47,12 @@ class OnDocFormSave extends Plugin
                             ]
                         ]);
                         $c->sortby('value', $sortDir);
-                        $c->leftJoin('modTemplateVarResource', 'tvc', ['tvc.contentid = modResource.id']);
-                        $c->leftJoin('modTemplateVar', 'tv', ['tv.id = tvc.tmplvarid']);
+                        $c->leftJoin('modTemplateVarResource', 'tvc', [
+                            'tvc.contentid = modResource.id'
+                        ]);
+                        $c->leftJoin('modTemplateVar', 'tv', [
+                            'tv.id = tvc.tmplvarid'
+                        ]);
                     }
                     $siblings = $this->modx->getIterator('modResource', $c);
                     if ($this->modx->getCount('modResource', $c) > 0) {
