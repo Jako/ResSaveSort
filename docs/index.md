@@ -12,3 +12,7 @@ containers after saving resources.
 
 * Fill the MODX system setting `ressavesort.sorts` with sort configurations.
 * The MODX system setting contains an editable grid for the configurations.
+
+### License
+
+The project is licensed under the [GPLv2 license](https://github.com/Jako/ResSaveSort/LICENSE.md).
