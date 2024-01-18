@@ -1,12 +1,12 @@
-.action-buttons {
+.ressavesort-panel .action-buttons {
   text-align: center;
 }
-.action-buttons li {
+.ressavesort-panel .action-buttons li {
   display: inline-block;
   font-size: 1.1em;
   line-height: 0.7;
   margin-right: 5px;
 }
-.action-buttons li:last-child {
+.ressavesort-panel .action-buttons li:last-child {
   margin-right: 0;
 }

@@ -18,6 +18,7 @@ ResSaveSort.grid.Systemsetting = function (config) {
     });
     Ext.applyIf(config, {
         id: this.ident + '-systemsetting-grid',
+        cls: 'ressavesort-panel',
         fields: ['id', 'sortby', 'sortdir', 'sortcontainer', 'rank'],
         autoHeight: true,
         store: new Ext.data.JsonStore({

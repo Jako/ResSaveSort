@@ -2,7 +2,7 @@
 /**
  * ResSaveSort
  *
- * Copyright 2013-2022 by Thomas Jakobi <office@treehillstudio.com>
+ * Copyright 2013-2024 by Thomas Jakobi <office@treehillstudio.com>
  *
  * @package ressavesort
  * @subpackage classfile
@@ -39,7 +39,7 @@ class ResSaveSort
      * The version
      * @var string $version
      */
-    public $version = '1.1.0';
+    public $version = '1.1.1';
 
     /**
      * The class options

@@ -1,12 +1,16 @@
-.action-buttons {
-  text-align: center;
-  li {
-    display: inline-block;
-    font-size: 1.1em;
-    line-height: .7;
-    margin-right: 5px;
-    &:last-child {
-      margin-right: 0;
+.ressavesort-panel {
+  .action-buttons {
+    text-align: center;
+
+    li {
+      display: inline-block;
+      font-size: 1.1em;
+      line-height: .7;
+      margin-right: 5px;
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 }
