@@ -1,6 +1,6 @@
-.ressavesort-panel .action-buttons{text-align:center}.ressavesort-panel .action-buttons li{display:inline-block;font-size:1.1em;line-height:.7;margin-right:5px}.ressavesort-panel .action-buttons li:last-child{margin-right:0}
+.action-buttons{text-align:center}.action-buttons li{display:inline-block;font-size:1.1em;line-height:.7;margin-right:5px}.action-buttons li:last-child{margin-right:0}.modx-grid .x-grid-cell-icons .x-grid3-cell-inner{padding-right:5px}
 /*!
  * ResSaveSort - Sort MODX containers after saving resources.
  * Version: 1.1.1
- * Build date: 2024-01-18
+ * Build date: 2024-02-21
  */

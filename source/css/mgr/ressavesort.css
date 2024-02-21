@@ -1,12 +1,16 @@
-.ressavesort-panel .action-buttons {
+.action-buttons {
   text-align: center;
 }
-.ressavesort-panel .action-buttons li {
+.action-buttons li {
   display: inline-block;
   font-size: 1.1em;
   line-height: 0.7;
   margin-right: 5px;
 }
-.ressavesort-panel .action-buttons li:last-child {
+.action-buttons li:last-child {
   margin-right: 0;
+}
+
+.modx-grid .x-grid-cell-icons .x-grid3-cell-inner {
+  padding-right: 5px;
 }

@@ -18,7 +18,7 @@ ResSaveSort.grid.Systemsetting = function (config) {
     });
     Ext.applyIf(config, {
         id: this.ident + '-systemsetting-grid',
-        cls: 'ressavesort-panel',
+        cls: 'modx-grid modx-grid-small',
         fields: ['id', 'sortby', 'sortdir', 'sortcontainer', 'rank'],
         autoHeight: true,
         store: new Ext.data.JsonStore({
@@ -80,7 +80,7 @@ ResSaveSort.grid.Systemsetting = function (config) {
             },
             menuDisabled: true,
             width: 30,
-            align: 'right'
+            fixed: true,
         }, {
             dataIndex: 'rank',
             hidden: true
@@ -147,41 +147,34 @@ Ext.extend(ResSaveSort.grid.Systemsetting, MODx.grid.LocalGrid, {
         }, this);
     },
     renderListener: function (grid, a, b, c) {
-        if (!(grid.container instanceof Ext.Layer)) {
-            new Ext.dd.DropTarget(grid.container, {
-                copy: false,
-                ddGroup: this.ident + '-systemsetting-grid-dd',
-                notifyDrop: function (dd, e, data) {
-                    var ds = grid.store;
-                    var sm = grid.getSelectionModel();
-                    var rows = sm.getSelections();
+        new Ext.dd.DropTarget(grid.container, {
+            copy: false,
+            ddGroup: this.ident + '-systemsetting-grid-dd',
+            notifyDrop: function (dd, e, data) {
+                var ds = grid.store;
+                var sm = grid.getSelectionModel();
+                var rows = sm.getSelections();
 
-                    var dragData = dd.getDragData(e);
-                    if (dragData) {
-                        var cindex = dragData.rowIndex;
-                        if (typeof (cindex) !== "undefined") {
-                            for (var i = 0; i < rows.length; i++) {
-                                ds.remove(ds.getById(rows[i].id));
-                            }
-                            ds.insert(cindex, data.selections);
-                            sm.clearSelections();
+                var dragData = dd.getDragData(e);
+                if (dragData) {
+                    var cindex = dragData.rowIndex;
+                    if (typeof (cindex) !== "undefined") {
+                        for (var i = 0; i < rows.length; i++) {
+                            ds.remove(ds.getById(rows[i].id));
                         }
+                        ds.insert(cindex, data.selections);
+                        sm.clearSelections();
                     }
-                    grid.getView().refresh();
-                    grid.saveValue();
                 }
-            });
-            this.add(this.hiddenField);
-            this.saveValue();
-        } else {
-            grid.container.addListener('beforestartedit', function () {
-                return false;
-            });
-            console.log(grid);
-            return false;
-        }
+                grid.getView().refresh();
+                grid.saveValue();
+            }
+        });
+        this.add(this.hiddenField);
+        this.saveValue();
     },
-    buttonColumnRenderer: function () {
+    buttonColumnRenderer: function (value, metaData) {
+        metaData.css = 'x-grid-cell-icons';
         var values = {
             action_buttons: [{
                 className: 'remove',
