@@ -1,15 +1,15 @@
 ResSaveSort.grid.Systemsetting = function (config) {
     config = config || {};
     this.ident = 'ressavesort-systemsetting-' + Ext.id();
-    this.buttonColumnTpl = new Ext.XTemplate('<tpl for=".">'
-        + '<tpl if="action_buttons !== null">'
-        + '<ul class="action-buttons">'
-        + '<tpl for="action_buttons">'
-        + '<li><i class="icon {className} icon-{icon}" title="{text}"></i></li>'
-        + '</tpl>'
-        + '</ul>'
-        + '</tpl>'
-        + '</tpl>', {
+    this.buttonColumnTpl = new Ext.XTemplate('<tpl for=".">' +
+        '<tpl if="action_buttons !== null">' +
+        '<ul class="action-buttons">' +
+        '<tpl for="action_buttons">' +
+        '<li><i class="icon {className} icon-{icon}" title="{text}"></i></li>' +
+        '</tpl>' +
+        '</ul>' +
+        '</tpl>' +
+        '</tpl>', {
         compiled: true
     });
     this.hiddenField = new Ext.form.TextArea({
