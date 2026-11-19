@@ -138,7 +138,24 @@ class ResSaveSort
             $this->modx->controller->addJavascript($jsUrl . 'ressavesort.min.js?v=v' . $this->version);
         }
         $this->modx->controller->addHtml('<script type="text/javascript">'
-            . 'ResSaveSort.config = ' . json_encode($this->options, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . ';'
+            . 'ResSaveSort.config = ' . json_encode($this->getManagerOptions(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . ';'
             . '</script>');
+    }
+
+    /**
+     * Get the options used by the manager scripts, so that no server paths are output in the manager
+     *
+     * @param array|null $options Options to filter instead of the class options
+     * @return array
+     */
+    public function getManagerOptions(?array $options = null): array
+    {
+        return array_intersect_key($options ?? $this->options, array_flip([
+            'assetsUrl',
+            'connectorUrl',
+            'debug',
+            'modxversion',
+            'version',
+        ]));
     }
 }
